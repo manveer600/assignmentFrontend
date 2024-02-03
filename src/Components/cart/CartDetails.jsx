@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react'
 import "./cartstyle.css"
+import React from "react";
+
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, deleteFromCart, deleteWholeCart, getCart, increment, removeSingleItem, removeToCart} from '../../Redux/Slices/CartSlice.js'
-import toast from 'react-hot-toast';
-import {emptycartItems} from '../../Redux/Slices/CartSlice.js'
-// import {removeToCart} from '../../Redux/Slices/CartSlice.js'
+import { deleteWholeCart, getCart, increment, removeSingleItem, removeToCart} from '../../Redux/Slices/CartSlice.js'
 
 const CartDetails = () => {
     const dispatch = useDispatch();
 
+
     useEffect(() => {
         dispatch(getCart());
     },[])
+
+
+
     const {carts} = useSelector((state)=>state.cart);
     
     const [totalprice,setPrice] = useState(0);
@@ -21,11 +24,12 @@ const CartDetails = () => {
     const items = useSelector((state) => state.cart.carts);
 
     // add to cart
-    const handleIncrement = (data)=>{
+    function handleIncrement(data){
         dispatch(increment({data}));
     }
-    // remove to cart
-    const handleDecrement = (data)=>{
+    
+    // remove from cart
+    function handleDecrement(data){
         if(data.qnty > 0){
             dispatch(removeSingleItem({data}));
         }
@@ -36,7 +40,9 @@ const CartDetails = () => {
         window.alert('This will clear your cart, Continue ??')
         await dispatch(deleteWholeCart());
     }
+
     function deleteProduct(data){
+        window.alert('The item will be deleted from your cart.')
         dispatch(removeToCart({data}));
     }
 
@@ -63,9 +69,7 @@ const CartDetails = () => {
         total()
         countquantity();
     },[items])
-    useEffect(() => {
-        
-    },[totalquantity])
+
 
     return (
         <>

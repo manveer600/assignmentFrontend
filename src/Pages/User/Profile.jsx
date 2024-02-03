@@ -1,6 +1,7 @@
 import {  useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import React from "react";
 
 export function Profile() {
   const userData = useSelector((state) => state?.auth?.data);

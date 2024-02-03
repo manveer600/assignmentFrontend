@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
 import NotFound from "./Pages/NotFound.jsx";
 import Signup from "./Pages/Signup.jsx";
+import React from "react";
 import Login from "./Pages/Login.jsx";
 import Headers from "./Components/cart/Headers.jsx";
 import { Profile } from "./Pages/User/Profile.jsx";

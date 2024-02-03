@@ -1,8 +1,10 @@
+import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserData, updateProfile } from "../../Redux/Slices/AuthSlice";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+
 import { BsPersonCircle } from "react-icons/bs";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 export function EditProfile(){

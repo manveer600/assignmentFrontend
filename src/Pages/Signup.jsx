@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast"; 
 import { createAccount } from "../Redux/Slices/AuthSlice";
 import { isEmailValid, isPasswordValid } from "../Helpers/regexMatcher";
+import React from "react";
 
 function Signup(){
     const dispatch = useDispatch();
